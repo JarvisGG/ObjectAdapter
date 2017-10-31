@@ -55,3 +55,16 @@ public class ZhihuPresenterSelector extends PresenterSelector {
     }
 }
 ```
+# Usage
+``` Java
+repositories {
+    // ...
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.jarvis.objectadapter:library:1.0'
+}
+```
+# License
+This project is licensed under the terms of the MIT license.
