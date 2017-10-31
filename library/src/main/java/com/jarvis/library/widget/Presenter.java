@@ -45,7 +45,7 @@ public abstract class Presenter implements FacetProvider {
 
     public abstract ViewHolder onCreateViewHolder(ViewGroup parent);
 
-    public abstract void onBindViewHolder(ViewHolder viewHolder, Object item);
+    public abstract void onBindViewHolder(ViewHolder viewHolder, Object item, int position);
 
     public abstract void onUnBindViewHolder(ViewHolder viewHolder);
 

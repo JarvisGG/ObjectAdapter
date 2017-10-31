@@ -120,6 +120,11 @@ public class ItemBridgeAdapter extends RecyclerView.Adapter implements FacetProv
         public void onItemRangeRemoved(int positionStart, int itemCount) {
             ItemBridgeAdapter.this.notifyItemRangeRemoved(positionStart, itemCount);
         }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition) {
+            ItemBridgeAdapter.this.notifyItemMoved(fromPosition, toPosition);
+        }
     };
 
     public ItemBridgeAdapter(ObjectAdapter adapter, PresenterSelector presenterSelector) {
@@ -203,7 +208,7 @@ public class ItemBridgeAdapter extends RecyclerView.Adapter implements FacetProv
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.mItem = mAdapter.get(position);
-        viewHolder.mPresenter.onBindViewHolder(viewHolder.mHolder, viewHolder.mItem);
+        viewHolder.mPresenter.onBindViewHolder(viewHolder.mHolder, viewHolder.mItem, position);
         onBind(viewHolder);
         if (mAdapterListener != null) {
             mAdapterListener.onBind(viewHolder);

@@ -66,6 +66,10 @@ public class ArrayObjectAdapter extends ObjectAdapter {
         notifyItemRangeInserted(index, itemCount);
     }
 
+    public void move(int fromPosition, int toPosition) {
+        notifyItemRangeMoved(fromPosition, toPosition);
+    }
+
     public boolean remove(Object item) {
         int index = mItems.indexOf(item);
         if (index >= 0) {

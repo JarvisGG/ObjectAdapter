@@ -28,6 +28,10 @@ public abstract class ObjectAdapter {
         public void onItemRangeRemoved(int positionStart, int itemCount) {
             onChanged();
         }
+
+        public void onItemRangeMoved(int fromPosition, int toPosition) {
+            onChanged();
+        }
     }
 
     private static final class DataObservable extends Observable<DataObserver> {
@@ -53,6 +57,12 @@ public abstract class ObjectAdapter {
         public void notifyItemRangeRemoved(int positionStart, int itemCount) {
             for (int i = mObservers.size() - 1; i >= 0; i--) {
                 mObservers.get(i).onItemRangeRemoved(positionStart, itemCount);
+            }
+        }
+
+        public void notifyItemRangeMoved(int fromPosition, int toPosition) {
+            for (int i = mObservers.size() - 1; i >= 0; i--) {
+                mObservers.get(i).onItemRangeMoved(fromPosition, toPosition);
             }
         }
     }
@@ -118,6 +128,10 @@ public abstract class ObjectAdapter {
 
     final protected void notifyItemRangeRemoved(int positionStart, int itemCount) {
         mObservable.notifyItemRangeRemoved(positionStart, itemCount);
+    }
+
+    final protected void notifyItemRangeMoved(int fromPosition, int toPosition) {
+        mObservable.notifyItemRangeMoved(fromPosition, toPosition);
     }
 
     final protected void notifyChanged() {
