@@ -55,8 +55,45 @@ public class ZhihuPresenterSelector extends PresenterSelector {
     }
 }
 ```
-# Usage
+FristPresenter:
 ``` Java
+public class FristPresenter extends Presenter {
+
+    private Context mContext;
+    private LayoutInflater mInflater;
+
+    public FristPresenter(Context context) {
+        this.mContext = context;
+        this.mInflater = ((Activity) context).getLayoutInflater();
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent) {
+        View view = mInflater.inflate(R.layout.item_frist, parent, false);
+        return new InnerViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, Object item, int position) {
+
+    }
+
+    @Override
+    public void onUnBindViewHolder(ViewHolder viewHolder) {
+
+    }
+
+    protected class InnerViewHolder extends ViewHolder {
+
+        public InnerViewHolder(View view) {
+            super(view);
+        }
+    }
+}
+
+```
+# Usage
+``` Gradle
 repositories {
     // ...
     maven { url "https://jitpack.io" }
