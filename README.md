@@ -100,7 +100,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.jarvis.objectadapter:library:1.0'
+    compile ''
 }
 ```
 # License
