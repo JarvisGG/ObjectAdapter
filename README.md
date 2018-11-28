@@ -103,5 +103,6 @@ dependencies {
     compile 'com.jarvis.library:ObjectAdapter:1.0'
 }
 ```
+# 目前此 lib 不再维护，后面将会 发布 ObjectAdapter 2.0 不会向上兼容，发布后此 lib 会被废弃
 # License
 This project is licensed under the terms of the MIT license.
